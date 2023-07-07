@@ -11,30 +11,48 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long> 
 #define write(x) cout << x << "\n"
-    
+#define read(x) cin >> x
+
+
+
+vll even;
+vll odd;
+
+void fill(ll n){
+    even.resize(n+1);
+    odd.resize(n+1);
+    even[0] = 2;
+    for(int i = 1; i <= n; i++){
+        even[i] = even[i-1]+2;
+    }
+    odd[0] = 1;
+    for(int i = 1; i <= n; i++){
+        odd[i] = odd[i-1]+2;
+    }
+}
+
+
 int main() {
+    /*
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.setf(ios::fixed);
-    /*
+    */
+
     #ifndef Mishra
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
     #endif
-    */
-    string s;
-    cin >> s;
-    int condition = 1;
-    for(int i = 1; i <= s.size(); i++){
-        if(s[i] == s[i-1]){
-            condition++;
-            if(condition == 7){
-                write("YES");
-                return 0;
-            }
-        } else {
-            condition = 1;
-        }
+
+    ll n, k;
+    cin >> n >> k;
+    fill(n);
+    if(k > sz(odd)) {
+        ll aux = k - sz(odd);
+        write(even[aux-1]);
+        return 0;
     }
-    write("NO");
+    else {
+        write(odd[k-1]);
+    }
 }

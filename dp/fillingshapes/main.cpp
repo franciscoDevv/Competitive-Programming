@@ -11,7 +11,20 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long> 
 #define write(x) cout << x << "\n"
+#define read(x) cin >> x
+
+int solve(int n){
+    vi dp(n+1);
+    dp[0] = 1;
+    dp[1] = 0;
     
+    for(ll i = 2; i <= n; i++){
+        dp[i] = 2 * dp[i - 2];
+    }
+    return dp[n];
+
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -22,19 +35,7 @@ int main() {
         freopen("output.txt", "w", stdout);
     #endif
     */
-    string s;
-    cin >> s;
-    int condition = 1;
-    for(int i = 1; i <= s.size(); i++){
-        if(s[i] == s[i-1]){
-            condition++;
-            if(condition == 7){
-                write("YES");
-                return 0;
-            }
-        } else {
-            condition = 1;
-        }
-    }
-    write("NO");
+    int n;
+    cin >> n;
+    cout << solve(n);
 }

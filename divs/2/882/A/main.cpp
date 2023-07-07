@@ -11,30 +11,27 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long> 
 #define write(x) cout << x << "\n"
-    
+#define read(x) cin >> x
+
+
 int main() {
+    /*
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.setf(ios::fixed);
-    /*
+    */
+
     #ifndef Mishra
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
     #endif
-    */
-    string s;
-    cin >> s;
-    int condition = 1;
-    for(int i = 1; i <= s.size(); i++){
-        if(s[i] == s[i-1]){
-            condition++;
-            if(condition == 7){
-                write("YES");
-                return 0;
-            }
-        } else {
-            condition = 1;
-        }
+    int t, n, k;
+    vi s;
+    read(t);
+    while(t--){
+        cin >> n >> k;
+        s.resize(n);
+        loop(i, 0, sz(s)) cin >> s[i];
+
     }
-    write("NO");
 }
