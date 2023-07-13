@@ -27,15 +27,10 @@ int main() {
     cin >> t;
     while(t--){
         cin >> a >> b;
-        while(1){
-            if(a % b == 0){
-                write(c);
-                break;
-            } else {
-                c++;
-                a++;
-            }
+        if(a & b == 0) write(0);
+        else {
+            c = (a / b + 1) * b;
+            write(c - a);
         }
-        c = 0;
     }
 }
